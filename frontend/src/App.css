@@ -1,0 +1,14 @@
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+
+}
+
+.navigation li:not(.previous,.next) {
+  @apply rounded-full w-8 h-8 flex items-center justify-center text-sm;
+}
+
+.navigation .selected {
+  @apply bg-blue-600 text-primary-foreground;
+}
