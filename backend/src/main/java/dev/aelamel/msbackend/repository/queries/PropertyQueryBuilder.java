@@ -36,11 +36,11 @@ public class PropertyQueryBuilder {
 
   private static void priceFilter(SearchCriteria criteria, List<String> filters) {
     if (criteria.getMinPrice() != null) {
-      filters.add("price > " + criteria.getMinPrice());
+      filters.add(String.format("price > %f", criteria.getMinPrice()));
     }
 
     if (criteria.getMaxPrice() != null) {
-      filters.add("price < " + criteria.getMaxPrice());
+      filters.add(String.format("price < %f", criteria.getMaxPrice()));
     }
   }
 
@@ -61,11 +61,11 @@ public class PropertyQueryBuilder {
 
   private static void areaFilter(SearchCriteria criteria, List<String> filters) {
     if (criteria.getMinArea() != null) {
-      filters.add("area >= " + criteria.getMinArea());
+      filters.add(String.format("area >= %f", criteria.getMinArea()));
     }
 
     if (criteria.getMinArea() != null && criteria.getMaxArea() != null && criteria.getMaxArea() >= criteria.getMinArea()){
-      filters.add("area <= " + criteria.getMaxArea());
+      filters.add(String.format("area <= %f", criteria.getMaxArea()));
     }
   }
 
@@ -75,13 +75,14 @@ public class PropertyQueryBuilder {
     }
 
     if (criteria.getMaxRooms() > 0 && criteria.getMaxRooms() >= criteria.getMinRooms()){
-      filters.add("rooms <= " + criteria.getMaxRooms());
+      filters.add(String.format("rooms <= %d", criteria.getMaxRooms()));
+
     }
   }
 
   private static void propertyTypeFilter(SearchCriteria criteria, List<String> filters) {
     if (criteria.getType() != null) {
-      filters.add("type = " + criteria.getType());
+      filters.add(String.format("type = %s", criteria.getType()));
     }
   }
 
