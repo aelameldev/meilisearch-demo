@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: meilisearch-service
+
+
+meilisearch:
+  host: http://localhost:7700
+  masterKey: masterKey
